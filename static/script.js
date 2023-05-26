@@ -13,7 +13,7 @@ function createClient(url, client_name, client_email=null) {
     clearFields();
 }
 
-function clearCFields() {
+function clearFields() {
     document.getElementById('client_name').value = "";
     document.getElementById('client_email').value = "";
     document.getElementById('product_name').value = "";
@@ -31,4 +31,6 @@ function createProduct(url, product_name, product_price) {
             "Content-type": "application/json; charset=UTF-8"
         }
     });
+
+    clearFields()
 }
