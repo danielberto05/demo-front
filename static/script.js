@@ -31,5 +31,4 @@ function createProduct(url, product_name, product_price) {
             "Content-type": "application/json; charset=UTF-8"
         }
     });
-    console.log(client_response.JSON)
 }
