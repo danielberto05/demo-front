@@ -4,6 +4,7 @@
     <link href="{{ url_for('static', path='/styles.css') }}" rel="stylesheet">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="{{ url_for('static', path='/script.js') }}"></script>
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://unpkg.com/@tailwindcss/forms@0.2.1/dist/forms.min.css" rel="stylesheet">
 </head>
@@ -61,15 +62,28 @@
                             <input
                               type="text"
                               class="block w-full mt-1"
+                              id="client_name"
                               placeholder=""
                               required
                             />
                         </label>
                         <label class="block">
                           <span class="text-gray-700">E-mail do cliente</span>
-                          <input type="email" class="block w-full mt-1" placeholder="" />
+                          <input
+                            type="email"
+                            class="block w-full mt-1"
+                            id="client_email"
+                            placeholder=""
+                          />
                         </label>
-                        <button class="block py-2 text-white bg-indigo-600 rounded shadow-lg bg-indigo-300">
+                        <button 
+                          class="block py-2 text-white bg-indigo-600 rounded shadow-lg bg-indigo-300"
+                          onclick="createClient(
+                            '{{ back_url }}',
+                            document.getElementById('client_name').value,
+                            document.getElementById('client_email').value
+                          )"
+                        >
                           Cadastrar Cliente
                         </button>
                       </div>
@@ -119,15 +133,29 @@
                             <input
                               type="text"
                               class="block w-full mt-1"
+                              id="product_name"
                               placeholder=""
                               required
                             />
                         </label>
                         <label class="block">
                           <span class="text-gray-700">Valor do produto</span>
-                          <input type="text" class="block w-full mt-1" placeholder="" required/>
+                          <input
+                            type="number"
+                            class="block w-full mt-1"
+                            id="product_price"
+                            placeholder=""
+                            required
+                          />
                         </label>
-                        <button class="block py-2 text-white bg-indigo-600 rounded shadow-lg bg-indigo-300">
+                        <button
+                          class="block py-2 text-white bg-indigo-600 rounded shadow-lg bg-indigo-300"
+                          onclick="createProduct(
+                            '{{ back_url }}',
+                            document.getElementById('product_name').value,
+                            document.getElementById('product_name').value
+                          )"
+                        >
                           Cadastrar Produto
                         </button>
                       </div>

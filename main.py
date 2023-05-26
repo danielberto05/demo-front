@@ -5,6 +5,9 @@ from fastapi.templating import Jinja2Templates
 
 from functions import get_info
 
+import os
+
+BACK_END_URL = os.getenv('BACK_END_URL')
 app = FastAPI()
 
 app.mount("/static", StaticFiles(directory="static"), name="static")
@@ -18,4 +21,5 @@ async def start_page(request: Request):
                                           "request": request,
                                           "clients_table": await get_info.get_client(),
                                           "products_table": await get_info.get_products(),
+                                          "back_url": BACK_END_URL,
                                       })
